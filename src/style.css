@@ -30,6 +30,15 @@ body {
 }
 
 .nav__link {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  /* absolutely positioned elements are positioning themselves against the */
+  /* first not-static-positioned-ancestor, and if there is none, they */
+  /* position against html ... */
+  /* adding 'relative' position here makes sure that children (underline) */
+  /* positions agains its direct parent (nav__link), which is desired */
+  position: relative;
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -38,4 +47,19 @@ body {
   font-size: 12px;
   line-height: 14px;
   text-transform: uppercase;
+}
+
+.nav__link.is-active {
+  color: #00acdc;
+}
+
+.nav__link.is-active::after {
+  content: "";
+  height: 4px;
+  background-color: #00acdc;
+  /* important: make sure that direct parent (nav__link) uses 'relative' pos. */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
