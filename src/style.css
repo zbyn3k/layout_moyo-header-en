@@ -67,3 +67,7 @@ body {
 .nav__link:hover {
   color: #00acdc;
 }
+
+.nav__item:first-child {
+  margin-left: 0;
+}
